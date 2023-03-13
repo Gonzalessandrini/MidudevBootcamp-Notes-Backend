@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/notes 
+Content-Type: application/json
+
+{
+    "content": "Cafe 8:00am ",
+    "important":true,
+    "userId":"640b3eb6a35773d859301d72"
+}
+
