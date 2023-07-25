@@ -1,8 +1,6 @@
 const bcrypt= require('bcrypt')
 const usersRouter= require('express').Router()
-const User= require('../models/user')
-const mongoose= require('mongoose')
-
+const User= require('../models/User')
 
 usersRouter.get('/', async (request,response)=>{
     const users= await User.find({}).populate('notes')

@@ -18,6 +18,6 @@ noteSchema.set('toJSON', {
     }
 })
 
-const Note= model('note', noteSchema)
+const Note= model('Note', noteSchema)
 
 module.exports= Note
