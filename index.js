@@ -15,6 +15,10 @@ const loginRouter = require('./controllers/login')
 app.use(express.json())
 app.use(cors())
 
+app.get('/',(req,res)=>{
+    res.send('Hello world')
+})
+
 app.use('/api/notes', notesRouter)
 
 app.use('/api/users', usersRouter)
