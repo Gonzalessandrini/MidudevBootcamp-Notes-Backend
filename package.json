@@ -26,6 +26,7 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "7.0.0",
     "mongoose-unique-validator": "^4.0.0",
+    "node-version-alias": "^4.1.0",
     "yarn": "^1.22.19"
   },
   "eslintConfig": {
@@ -36,5 +37,8 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
 }
