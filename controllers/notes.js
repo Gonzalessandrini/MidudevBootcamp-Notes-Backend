@@ -31,39 +31,39 @@ notesRouter.put('/:id',async (request, response, next) => {
   }
 })
 
-notesRouter.post('/', async (request,response)=>{
+// notesRouter.post('/', async (request,response)=>{
 
-    const {content, important=false }= request.body
+//     const {content, important=false }= request.body
 
-    const {userId}= request
+//     const {userId}= request
 
-     const user= await User.findById(userId)
+//      const user= await User.findById(userId)
 
-    if(!content){
-        return response.status(400).json({
-            error: 'note.content is missing'
-        })}
+//     if(!content){
+//         return response.status(400).json({
+//             error: 'note.content is missing'
+//         })}
         
-    const newNote= new Note({
+//     const newNote= new Note({
 
-        content,
-        date: new Date(),
-        important,
-        user: user._id
-    })
-    try {
-    const savedNote= await newNote.save()
+//         content,
+//         date: new Date(),
+//         important,
+//         user: user._id
+//     })
+//     try {
+//     const savedNote= await newNote.save()
 
-    user.notes= user.notes.concat(savedNote._id)
-    await user.save()
+//     user.notes= user.notes.concat(savedNote._id)
+//     await user.save()
 
-    response.json(savedNote)
+//     response.json(savedNote)
 
-    } catch (error){
-      console.error(error)
-    }
+//     } catch (error){
+//       console.error(error)
+//     }
     
-})
+// })
 
 notesRouter.delete('/:id',userExtractor, async (request,response,next)=>{
     const {id}=request.params
