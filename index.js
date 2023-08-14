@@ -13,7 +13,11 @@ const notesRouter= require('./controllers/notes')
 const loginRouter = require('./controllers/login')
 
 app.use(express.json())
-app.use(cors())
+app.use(cors(
+    {
+        origin:'*'
+    }
+))
 
 app.get('/',(req,res)=>{
     res.send('Hello world')

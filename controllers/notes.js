@@ -31,7 +31,7 @@ notesRouter.put('/:id',async (request, response, next) => {
   }
 })
 
-notesRouter.post('/',userExtractor, async (request,response)=>{
+notesRouter.post('/', async (request,response)=>{
 
     const {content, important=false }= request.body
 
