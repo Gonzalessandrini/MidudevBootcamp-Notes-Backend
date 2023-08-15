@@ -34,7 +34,11 @@ app.post('/api/notes', async (request,response)=>{
 
     const {userId}= request
 
+    console.log(userId)
+
      const user= await User.findById(userId)
+
+     console.log(user)
 
     if(!content){
         return response.status(400).json({
