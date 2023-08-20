@@ -11,7 +11,7 @@ loginRouter.post('/', async (request, response) => {
   const { body } = request
   const { username, password } = body
 
-  const user = await User.findOne({ username })
+  const user = await User.findOne({ username }).populate('notes')
 
   const passwordCorrect = user == null
     ? false
