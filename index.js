@@ -28,44 +28,6 @@ app.get('/',(req,res)=>{
 
 app.use('/api/notes', notesRouter)
 
-app.post('/api/notes', async (request,response)=>{
-
-    const {content, important=false }= request.body
-
-    const {userId}= request
-
-    console.log(userId)
-
-     const user= await User.findById(userId)
-
-     console.log(user)
-
-    if(!content){
-        return response.status(400).json({
-            error: 'note.content is missing'
-        })}
-        
-    const newNote= new Note({
-
-        content,
-        date: new Date(),
-        important,
-        user: user._id
-    })
-    try {
-    const savedNote= await newNote.save()
-
-    user.notes= user.notes.concat(savedNote._id)
-    await user.save()
-
-    response.json(savedNote)
-
-    } catch (error){
-      console.error(error)
-    }
-    
-})
-
 app.use('/api/users', usersRouter)
 
 app.use('/api/login', loginRouter)

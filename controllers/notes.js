@@ -8,7 +8,7 @@ notesRouter.get('/', async (request,response)=>{
     response.json(notes)
 })
 
-notesRouter.get('/:id',userExtractor, async (request,response)=>{
+notesRouter.get('/:id', async (request,response)=>{
     const note= await Note.findById(request.params.id)
     response.json(note)
 })
@@ -37,11 +37,8 @@ notesRouter.post('/',userExtractor, async (request,response)=>{
 
   const {userId}= request
 
-  console.log(userId)
+  const user= await User.findById(userId)
 
-   const user= await User.findById(userId)
-
-   console.log(user)
 
   if(!content){
       return response.status(400).json({
