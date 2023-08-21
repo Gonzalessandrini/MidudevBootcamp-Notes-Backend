@@ -3,7 +3,7 @@ const Note= require('../models/Note')
 const userExtractor= require('../middleware/userExtractor')
 const User= require('../models/User')
 
-notesRouter.get('/', username, async (request,response)=>{
+notesRouter.get('/', async (request,response,username)=>{
     const user = await User.findOne({username}).populate('notes')
     
     const notes= await user.notes
